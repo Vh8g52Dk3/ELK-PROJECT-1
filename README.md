@@ -50,23 +50,28 @@ Machines within the network can only be accessed by _____.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name          | Publicly Accessible | Allowed IP Addresses |
-|---------------|---------------------|---------------------------|
-| Jump Box      |  No                 | Workstation Public IP -p 22 |
-| WEB1          |  No                 |                      |
-| WEB2          |  No                 |                      |
-| Load Balancer |  No                 |
-| ELK           |  No                 |
+| Name          | Publicly Accessible | Allowed IP Addresses           |
+|---------------|---------------------|--------------------------------|
+| Jump Box      |  No                 | Workstation Public IP -p 22    |
+| WEB1          |  No                 | 10.0.0.4 -p 22                 |
+| WEB2          |  No                 | 10.0.0.4 -p 22                 |
+| Load Balancer |  No                 | Workstation Public IP -p 80    |
+| ELK           |  No                 | Workstation Public IP -p 5601  |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because 
+What is the main advantage of automating configuration with Ansible?
+
+-Errors were reduced when setting the configurations.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+
+-Download and Launch Elk Container - specified ports
+-Install Docker - docker.io
+-Increase Memory
+-Install pip3 - python3-pip
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -75,9 +80,13 @@ The following screenshot displays the result of running `docker ps` after succes
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - _TODO: List the IP addresses of the machines you are monitoring_
+- 10.0.0.5
+- 10.0.0.6
 
 We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_
+- Filebeat and Metricbeat was installed on Web-1 and Web-2
+
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
