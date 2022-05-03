@@ -16,7 +16,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - filebeat-playbook.yml
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -28,12 +28,14 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+- As computing power and functions exponentially move to the the cloud, Load Balancing will be critical as an important security factor. Distributed Denial-of-Service (DDoS) attacks are significantly lessened by the off-loading function of a load balancer defends an organization against these types of attacks.
+- A jump box is a secure computer that all admins connect to at first before launching any administrative tasks as an origination point to connect to other servers or untrusted environments.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log and system resources.
+- _TODO: What does Filebeat watch for? Filebeat monitors the files you specified, collects all the logged events and displays it on Elasticresearch.
+- _TODO: What does Metricbeat record? Metric collects metrics and system resource usages and displays it on Elasticresearch.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -103,8 +105,8 @@ We have installed the following Beats on these machines:
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 
-- Filebeat allows us to collect system events such as logins.
-- Metricbeat allows us to collect metrics such as cpu and memory usage.
+- Filebeat allows us to collect system events such as login events.
+- Metricbeat allows us to collect metrics such as memory usage and cpu.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -113,7 +115,7 @@ SSH into the control node and follow the steps below:
 - Copy the elk.install.yml file to /etc/ansible/elk_install.yml.
 - Update the host file to include:
 -   [elk]
--   10.1.0.1 ansible_python_intrepreter=usr/bin/python3
+-   10.1.0.4 ansible_python_intrepreter=usr/bin/python3
 
 - Run the playbook, and navigate to http://[elk-server-ip]:5601/app/kibana to check that the installation worked as expected.
 
